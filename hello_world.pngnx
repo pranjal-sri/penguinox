@@ -1,3 +1,8 @@
 func say_hello_world() {
+    a = 123;
+    b = 456;
+    if (world_sucks() and a>=b) {
+        print "Go away";
+    }
     print "Hello world, I am the peguin king";
 }
