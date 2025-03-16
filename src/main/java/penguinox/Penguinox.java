@@ -11,6 +11,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import penguinox.Token;
+import penguinox.Tokenizer;
+
+
 public class Penguinox {
     static boolean hadError = false;
     public static void main(String[] args) throws IOException {
@@ -46,9 +50,16 @@ public class Penguinox {
     }
 
     private static void run(String source) {
-        for(String line: source.split("\n")){
-            System.out.println(line);
+
+        Tokenizer tokenizer = new Tokenizer(source);
+        List<Token> tokens = tokenizer.scanTokens();
+
+        for(Token token: tokens){
+            System.out.println(token);
         }
+        // for(String line: source.split("\n")){
+        //     System.out.println(line);
+        // }
 
     }
 
