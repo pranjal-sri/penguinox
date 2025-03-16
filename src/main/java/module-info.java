@@ -1,0 +1,3 @@
+module penguinox {
+    exports penguinox;
+}
