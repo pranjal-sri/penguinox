@@ -56,7 +56,13 @@ def write_subclass(file_stream_object, subclass, indent_level=0):
         write_to_file(file_stream_object,
                       f'this.{feature_name} = {feature_name};',
                       indent_level + 2)
-    write_to_file(file_stream_object, '}', indent_level + 1)
+    write_to_file(file_stream_object, '}\n', indent_level + 1)
+
+    write_to_file(file_stream_object, f'@Override', indent_level + 1)
+    write_to_file(file_stream_object, f'<R> R acceptVisitor({BASE_CLASS}Visitor<R> visitor) {{', indent_level + 1)
+
+    write_to_file(file_stream_object, f'return visitor.visit{subclass}{BASE_CLASS}(this);', indent_level + 2)
+    write_to_file(file_stream_object, '}\n', indent_level + 1)
         
     write_to_file(file_stream_object, '}\n\n', indent_level)
 
@@ -76,6 +82,16 @@ def main(base_directory):
         write_to_file(f, f'abstract class {BASE_CLASS} {{\n', INDENT)
         INDENT += 1
 
+
+        write_to_file(f, f'interface {BASE_CLASS}Visitor<R> {{\n', INDENT)
+        INDENT += 1
+        for subclass in SUBCLASSES:
+            write_to_file(f, f'R visit{subclass}{BASE_CLASS}({subclass} {subclass.lower()});\n', INDENT)
+        INDENT -= 1
+        write_to_file(f, '}\n\n', INDENT)
+        
+
+        write_to_file(f, f'abstract <R> R acceptVisitor({BASE_CLASS}Visitor<R> visitor);\n', INDENT)
         # Generate all subclasses
         for subclass in SUBCLASSES:
             write_subclass(f, subclass, INDENT)
