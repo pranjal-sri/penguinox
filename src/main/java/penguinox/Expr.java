@@ -3,6 +3,21 @@ package penguinox;
 
 abstract class Expr {
 
+	interface ExprVisitor<R> {
+
+		R visitBinaryExpr(Binary binary);
+
+		R visitGroupingExpr(Grouping grouping);
+
+		R visitLiteralExpr(Literal literal);
+
+		R visitUnaryExpr(Unary unary);
+
+	}
+
+
+	abstract <R> R acceptVisitor(ExprVisitor<R> visitor);
+
 	static class Binary extends Expr { 
 
 		final Expr left;
@@ -14,6 +29,12 @@ abstract class Expr {
 			this.op = op;
 			this.right = right;
 		}
+
+		@Override
+		<R> R acceptVisitor(ExprVisitor<R> visitor) {
+			return visitor.visitBinaryExpr(this);
+		}
+
 	}
 
 
@@ -24,6 +45,12 @@ abstract class Expr {
 		Grouping(Expr expression) {
 			this.expression = expression;
 		}
+
+		@Override
+		<R> R acceptVisitor(ExprVisitor<R> visitor) {
+			return visitor.visitGroupingExpr(this);
+		}
+
 	}
 
 
@@ -34,6 +61,12 @@ abstract class Expr {
 		Literal(Object value) {
 			this.value = value;
 		}
+
+		@Override
+		<R> R acceptVisitor(ExprVisitor<R> visitor) {
+			return visitor.visitLiteralExpr(this);
+		}
+
 	}
 
 
@@ -46,6 +79,12 @@ abstract class Expr {
 			this.op = op;
 			this.right = right;
 		}
+
+		@Override
+		<R> R acceptVisitor(ExprVisitor<R> visitor) {
+			return visitor.visitUnaryExpr(this);
+		}
+
 	}
 
 
