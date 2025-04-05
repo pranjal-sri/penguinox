@@ -47,37 +47,33 @@ Our language defines a variety of token types, each serving a specific purpose i
   - `STRING`
 
 - **Keywords**:
-| Keyword Lexeme | TokenType     |
-|----------------|---------------|
-| **OOP and Functional Programming Constructs** | |
-| class          | CLASS         |
-| func           | FUNCTION      |
-| var            | VARIABLE      |
-| this           | THIS          |
-| super          | SUPER         |
-| **Control Flow Keywords** | |
-| if             | IF            |
-| else           | ELSE          |
-| for            | FOR           |
-| while          | WHILE         |
-| continue       | CONTINUE      |
-| break          | BREAK         |
-| return         | RETURN        |
-| **Logical Programming Keywords** | |
-| true           | TRUE          |
-| false          | FALSE         |
-| and            | AND           |
-| or             | OR            |
-| not            | NOT           |
-| **Keywords for Ease of Use** | |
-| print          | PRINT         |
-| **Miscellaneous** | |
-| nil            | NIL           |
+
+| **Keyword Lexeme** | **TokenType** |
+|--------------------|---------------|
+|  ---- *OOP and Functional Programming Constructs* ---- | |
+| class              | `CLASS`         |
+| func               | `FUNCTION`      |
+| var                | `VARIABLE`      |
+| this               | `THIS`          |
+| super              | `SUPER`         |
+| ---- *Control Flow Keywords* ---- | |
+| if                 | `IF`            |
+| else               | `ELSE`          |
+| for                | `FOR`           |
+| while              | `WHILE`         |
+| continue           | `CONTINUE`      |
+| break              | `BREAK`         |
+| return             | `RETURN`        |
+| ---- *Logical Programming Keywords* ----|  |
+| true               | `TRUE`          |
+| false              | `FALSE`         |
+| and                | `AND`           |
+| or                 | `OR`            |
+| not                | `NOT`           |
+| ---- *Keywords for Ease of Use* ---- | |
+| print              | `PRINT`         |
+| ----  *Miscellaneous* ---- | |
+| nil                | `NIL`           |
 
 - **Miscellaneous**:
   - `EOF`
-
-This categorization helps in understanding the role each token type plays in the language, facilitating easier parsing and interpretation.
-
-
-
