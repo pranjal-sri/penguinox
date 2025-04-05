@@ -47,32 +47,37 @@ Our language defines a variety of token types, each serving a specific purpose i
   - `STRING`
 
 - **Keywords**:
-  - Constructs for OOP and Functional Programming:
-    - `CLASS`
-    - `FUNCTION`
-    - `VARIABLE`
-    - `THIS`
-    - `SUPER`
-  - Control flow keywords:
-    - `IF`
-    - `ELSE`
-    - `FOR`
-    - `WHILE`
-    - `CONTINUE`
-    - `BREAK`
-    - `RETURN`
-  - Logical programming keywords:
-    - `TRUE`
-    - `FALSE`
-    - `AND`
-    - `OR`
-    - `NOT`
-  - Keywords for ease of use:
-    - `PRINT`
+| Keyword Lexeme | TokenType     |
+|----------------|---------------|
+| **OOP and Functional Programming Constructs** | |
+| class          | CLASS         |
+| func           | FUNCTION      |
+| var            | VARIABLE      |
+| this           | THIS          |
+| super          | SUPER         |
+| **Control Flow Keywords** | |
+| if             | IF            |
+| else           | ELSE          |
+| for            | FOR           |
+| while          | WHILE         |
+| continue       | CONTINUE      |
+| break          | BREAK         |
+| return         | RETURN        |
+| **Logical Programming Keywords** | |
+| true           | TRUE          |
+| false          | FALSE         |
+| and            | AND           |
+| or             | OR            |
+| not            | NOT           |
+| **Keywords for Ease of Use** | |
+| print          | PRINT         |
+| **Miscellaneous** | |
+| nil            | NIL           |
 
 - **Miscellaneous**:
-  - `NIL`
   - `EOF`
 
 This categorization helps in understanding the role each token type plays in the language, facilitating easier parsing and interpretation.
+
+
 
